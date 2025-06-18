@@ -14,7 +14,7 @@ export default function Home() {
 					私はフロントエンジニアをしているマサトです。JavaScriptのフレームワークを使用した開発を行っています。
 				</p>
 			</section>
-			<section>
+			<section className={`${utilStyle.headingMd} ${utilStyle.padding1px}`}>
 				<h2>エンジニアブログ</h2>
 				<div>
 					<article>
