@@ -16,16 +16,66 @@ export default function Home() {
 			</section>
 			<section className={`${utilStyle.headingMd} ${utilStyle.padding1px}`}>
 				<h2>エンジニアブログ</h2>
-				<div>
+				<div className={styles.grid}>
 					<article>
 						<Link href='/'>
-							<img src='/images/thumbnail01.jpg' />
+							<img
+								src='/images/thumbnail01.jpg'
+								className={styles.thumbnailImage}
+							/>
 						</Link>
 						<Link href='/' legacyBehavior>
-							<a>SSRとSSGの使い分けの場面はいつなのか？</a>
+							<a className={utilStyle.boldText}>
+								SSRとSSGの使い分けの場面はいつなのか？
+							</a>
 						</Link>
 						<br />
-						<small>February 23 2020</small>
+						<smal className={utilStyle.lightText}>February 23 2020</smal>
+					</article>
+					<article>
+						<Link href='/'>
+							<img
+								src='/images/thumbnail01.jpg'
+								className={styles.thumbnailImage}
+							/>
+						</Link>
+						<Link href='/' legacyBehavior>
+							<a className={utilStyle.boldText}>
+								SSRとSSGの使い分けの場面はいつなのか？
+							</a>
+						</Link>
+						<br />
+						<smal className={utilStyle.lightText}>February 23 2020</smal>
+					</article>
+					<article>
+						<Link href='/'>
+							<img
+								src='/images/thumbnail01.jpg'
+								className={styles.thumbnailImage}
+							/>
+						</Link>
+						<Link href='/' legacyBehavior>
+							<a className={utilStyle.boldText}>
+								SSRとSSGの使い分けの場面はいつなのか？
+							</a>
+						</Link>
+						<br />
+						<smal className={utilStyle.lightText}>February 23 2020</smal>
+					</article>
+					<article>
+						<Link href='/'>
+							<img
+								src='/images/thumbnail01.jpg'
+								className={styles.thumbnailImage}
+							/>
+						</Link>
+						<Link href='/' legacyBehavior>
+							<a className={utilStyle.boldText}>
+								SSRとSSGの使い分けの場面はいつなのか？
+							</a>
+						</Link>
+						<br />
+						<smal className={utilStyle.lightText}>February 23 2020</smal>
 					</article>
 				</div>
 			</section>
