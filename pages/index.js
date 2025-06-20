@@ -4,9 +4,29 @@ import styles from '../styles/Home.module.css';
 import Layout from '../components/Layout';
 import utilStyle from '../styles/utils.module.css';
 import Link from 'next/link';
-``;
+import { getPostData } from '../lib/post';
 
-export default function Home() {
+// SSGの場合
+export async function getStaticProps() {
+	const allPostData = getPostData();
+	console.log(allPostData);
+	return {
+		props: {
+			allPostData,
+		},
+	};
+}
+
+// SSGの場合
+// export async function getServerSideProps(context) {
+// 	return {
+// 		props: {
+// 			// コンポーネントに渡すためのprops
+// 		},
+// 	};
+// }
+
+export default function Home({ allPostData }) {
 	return (
 		<Layout>
 			<section className={utilStyle.headingMd}>
@@ -17,66 +37,18 @@ export default function Home() {
 			<section className={`${utilStyle.headingMd} ${utilStyle.padding1px}`}>
 				<h2>エンジニアブログ</h2>
 				<div className={styles.grid}>
-					<article>
-						<Link href='/'>
-							<img
-								src='/images/thumbnail01.jpg'
-								className={styles.thumbnailImage}
-							/>
-						</Link>
-						<Link href='/' legacyBehavior>
-							<a className={utilStyle.boldText}>
-								SSRとSSGの使い分けの場面はいつなのか？
-							</a>
-						</Link>
-						<br />
-						<smal className={utilStyle.lightText}>February 23 2020</smal>
-					</article>
-					<article>
-						<Link href='/'>
-							<img
-								src='/images/thumbnail01.jpg'
-								className={styles.thumbnailImage}
-							/>
-						</Link>
-						<Link href='/' legacyBehavior>
-							<a className={utilStyle.boldText}>
-								SSRとSSGの使い分けの場面はいつなのか？
-							</a>
-						</Link>
-						<br />
-						<smal className={utilStyle.lightText}>February 23 2020</smal>
-					</article>
-					<article>
-						<Link href='/'>
-							<img
-								src='/images/thumbnail01.jpg'
-								className={styles.thumbnailImage}
-							/>
-						</Link>
-						<Link href='/' legacyBehavior>
-							<a className={utilStyle.boldText}>
-								SSRとSSGの使い分けの場面はいつなのか？
-							</a>
-						</Link>
-						<br />
-						<smal className={utilStyle.lightText}>February 23 2020</smal>
-					</article>
-					<article>
-						<Link href='/'>
-							<img
-								src='/images/thumbnail01.jpg'
-								className={styles.thumbnailImage}
-							/>
-						</Link>
-						<Link href='/' legacyBehavior>
-							<a className={utilStyle.boldText}>
-								SSRとSSGの使い分けの場面はいつなのか？
-							</a>
-						</Link>
-						<br />
-						<smal className={utilStyle.lightText}>February 23 2020</smal>
-					</article>
+					{allPostData.map(({ id, date, title, thumbnail }) => (
+						<article key={id}>
+							<Link href={`/posts/${id}`} legacyBehavior>
+								<img src={`${thumbnail}`} className={styles.thumbnailImage} />
+							</Link>
+							<Link href={`/posts/${id}`} legacyBehavior>
+								<a className={utilStyle.boldText}>{title}</a>
+							</Link>
+							<br />
+							<smal className={utilStyle.lightText}>{date}</smal>
+						</article>
+					))}
 				</div>
 			</section>
 		</Layout>
