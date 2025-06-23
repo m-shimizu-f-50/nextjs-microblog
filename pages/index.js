@@ -4,11 +4,11 @@ import styles from '../styles/Home.module.css';
 import Layout from '../components/Layout';
 import utilStyle from '../styles/utils.module.css';
 import Link from 'next/link';
-import { getPostData } from '../lib/post';
+import { getPostsData } from '../lib/post';
 
 // SSGの場合
 export async function getStaticProps() {
-	const allPostData = getPostData();
+	const allPostData = getPostsData();
 	console.log(allPostData);
 	return {
 		props: {
