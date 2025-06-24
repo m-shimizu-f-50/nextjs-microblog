@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import utilStyle from '../styles/utils.module.css';
 import Link from 'next/link';
 import { getPostsData } from '../lib/post';
+import { siteTitle } from '../components/Layout';
 
 // SSGの場合
 export async function getStaticProps() {
@@ -28,7 +29,11 @@ export async function getStaticProps() {
 
 export default function Home({ allPostData }) {
 	return (
-		<Layout>
+		<Layout home>
+			<Head>
+				<link rel='icon' href='/favicon.ico' />
+				<title>{siteTitle}</title>
+			</Head>
 			<section className={utilStyle.headingMd}>
 				<p>
 					私はフロントエンジニアをしているマサトです。JavaScriptのフレームワークを使用した開発を行っています。
